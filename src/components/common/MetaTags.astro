@@ -1,0 +1,38 @@
+---
+
+import { SITE } from '../../config.mjs';
+import type { MetaSEO } from '../../types';
+import { getCanonical, getAsset } from '../../utilities/permalinks';
+
+import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
+
+export interface Props extends MetaSEO {
+  dontUseTitleTemplate?: boolean;
+}
+
+const {
+  title = SITE.name,
+  description = '',
+
+  canonical = getCanonical(String(Astro.url.pathname)),
+  noindex = false,
+  nofollow = false,
+
+  ogTitle = title,
+  ogType = 'website',
+
+  dontUseTitleTemplate = false,
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Google Site Verification -->
+{SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
+
+{SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
+
+<link rel="shortcut icon" href={getAsset('/favicon.ico')} />
+<link rel="icon" type="image/svg+xml" href={getAsset('/favicon.ico')} />
+<link rel="mask-icon" href={getAsset('/favicon.ico')} color="#8D46E7" />
