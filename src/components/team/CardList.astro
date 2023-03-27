@@ -1,0 +1,15 @@
+---
+import Item from '../../components/team/Card.astro';
+
+const { cards } = Astro.props;
+---
+
+<div class="flex flex-wrap justify-center">
+    {
+      cards.map((card:object) => (
+      <div class="px-6 pt-16 pb-6 relative rounded-lg md:w-1/3">
+          <Item card={card}/>
+      </div>
+      ))
+    }
+</div>

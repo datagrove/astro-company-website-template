@@ -1,81 +1,174 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { SITE } from '../config.mjs';
+
+import Layout from '../layouts/PageLayout.astro';
+
+import Hero from '../components/home/Hero.astro';
+import LatestCasePosts from '../components/case_studies/LatestPosts.astro';
+import NeedVideos from '../components/home/NeedVideos.astro';
+import Supercharge from '../components/home/Supercharge.astro';
+import PackageTiles from '../components/home/PackageTiles.astro';
+import QualityVidGraphics from '../components/home/QualityVidGraphics.astro'
+import Testimonials from '../components/home/Testimonials.astro';
+
+const { packages } = Astro.props;
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+<div>
+  <Hero>  
+  <Fragment slot="title">
+      Socialize Your Content 
+    </Fragment>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Professional help building your video and graphical content to market and grow your business with easy & flexible plans.
+      </span>
+    </Fragment>
+  </Hero> 
+</div>
+    <div class="bg-home-bg">
+      <Hero
+        callToAction2={{ text: '▶️ OUR WORK', href: '#features' }}
+      >
+    </Hero>
+    </div>   
+  
+  <!-- Note Widget ******************* -->
+
+  <!-- <Note /> -->
+
+
+  <!-- NeedVideos Widget -->
+
+  <NeedVideos
+    title="You Need Videos"
+    subtitle="A few statistics to consider"
+    items={[
+      [
+        {
+          title: '81%',
+          description: 'Effective businesses recognize that they have to keep up with trends. Now, 81% of business use video as a critical marketing tool.'
+        },
+        {
+          title: '95%',
+          description: 'You can simply communicate better with video. Studies show that viewers retain 95% of a message when watching a video verses 10% when reading text.'
+        },
+        {
+          title: '59%',
+          description: "Don't take our word for it. 59% of executives say they would rather watch a video than text when learning about a product or services."
+        },
+      ]
+    ]}
+  />
+
+  <!-- Supercharge Widget -->
+
+  <Supercharge
+      title="Supercharge Your Marketing With Video Content"
+      items={[
+        [
+          {
+            text1: "If you’re not advertising with video, you’re losing new business. Gig-speeds are rapidly making video a standard for online marketing and if it’s lacking in your ads, goodbye to your audience.",
+            text2: "That’s the last thing you want when people are trying to decide where to take their business. But producing a quality video is no small task. That’s where we come in. We have the smooth process you've been searching for."
+          },
+          {
+            text1: "Our team of experts will help you plan and create your marketing content that will help you reach your goals. That means we can help come up with social content ideas and then make them a reality.",
+            text2: "Whether you're looking for simple video editing, or more complex graphic animation, or sourcing local filming, our packages are here to simplify creating your content.",
+          },
+        ]
+      ]}
+  />
+
+  <PackageTiles />
+
+  <!-- QualityVidGraphics Widget -->
+
+  <QualityVidGraphics
+    title="More Quality Marketing Videos & Graphics"
+    description1="Clients that work with us find they are more easily creating marketing content more consistently. We help them navigate through complex video production, 2D animation, and everything in-between."
+    description2="By using our process you'll not only have a good experience but not spend all your marketing money on producing high-quality videos."
+    items={[
+      [
+        {
+          icon: "ph:play-circle",
+          alt: "play icon",
+          subtitle: "NO Long-Term Contracts",
+          tag: "Flexible and easy packages to fit your timeline and need.",
+        },
+        {
+          icon: "ph:play-circle",
+          alt: "play icon",
+          subtitle: "Custom",
+          tag: "Everything is created for you according to your brand.",
+        },
+        {
+          icon: "ph:play-circle",
+          alt: "play icon",
+          subtitle: "Localized",
+          tag: "Filming will be in your local area or wherever you need.",
+        },
+      ]
+    ]}        
+  />
+
+  <!-- Testimonials Widget -->
+
+  <Testimonials
+    highlight="TESTIMONIALS"
+    title="What Our Clients Are Saying"
+    items={[
+      [
+        {
+          photo: "../src/assets/images/headshot.jpg",
+          alt: "Man wearing glasses",
+          quote: "The bottom line: I make more money. Simply said! Working with Jeff and his team, I'm hitting all-time revenue numbers.",
+          name: "Tom Stone",
+          role: "MORTGAGE CONSULTANT",
+        },
+        {
+          photo: "../src/assets/images/headshot.jpg",
+          alt: "Man wearing glasses",
+          quote: "We've used Socialize for regular video creation for the last two years. They're easy to work with and create high quality videos!",
+          name: "Colin Kelly",
+          role: "CLEAR FOUNDATION",
+        },
+        {
+          photo: "../src/assets/images/headshot.jpg",
+          alt: "Man wearing glasses",
+          quote: "They were really great with coming up with different ideas and unique scripts. I was really happy with the creativity and the end results.",
+          name: "Dana Ball",
+          role: "DANA BALL LEGAL SERVICES",
+        },
+      ]
+    ]}
+  />
+
+  
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <LatestCasePosts
+    title="Find out more from our Case Studies"
+    information={`The blog is used to display AstroWind documentation.
+			Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+			Astro is a very interesting technology. Thanks.
+		`}
+    postIds={[
+      'get-started-website-with-astro-tailwind-css.md',
+      'how-to-customize-astrowind-to-your-brand.md',
+      'useful-resources-to-create-websites.md',
+      'astrowind-template-in-depth.md',
+    ]}
+  />
+
+  
+</Layout>

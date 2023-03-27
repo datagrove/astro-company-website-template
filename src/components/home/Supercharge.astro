@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import { findImage } from '~/utils/images';
+
+interface Item {
+  text1: string;
+  text2: string;
+}
+
+interface Package {
+  image: string;
+  alt: string;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  title?: string;
+  items?: Array<Array<Item>>;
+  packages?: Array<Array<Package>>;
+}
+
+const packageList = await getCollection('packages', ({ data }) => {
+  return data.draft !== true;
+});
+
+const { title = await Astro.slots.render('title'), items = [], packages = [] } = Astro.props;
+
+---
+
+<section class="scroll-mt-16 px-20" id="supercharge">
+  <div>
+    <div class="title text-center px-4 pt-28 pb-16 mx-auto max-w-6xl lg:px-8 lg:pt-40">
+      {
+        title && (
+          <h2
+            class="text-3xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
+            set:html={title}
+          />
+        )
+      }
+    </div>
+
+    <div class="flex flex-wrap mb-10">
+      {
+        items.map((subitems) => (
+          <div class="flex flex-wrap md:flex-nowrap">
+            <div class="grid md:grid-cols-2">
+            {subitems.map(({ text1, text2 }) => (
+                <div class="m-4">
+                  <p class="text-muted dark:text-slate-400" set:html={text1} />
+                </div>
+                <div class="m-4">
+                  <p class="text-muted dark:text-slate-400" set:html={text2} />
+                </div>
+              
+            ))}
+            </div>         
+            </div>
+          
+        ))
+      }
+    </div>
+  </div>
+</section>
