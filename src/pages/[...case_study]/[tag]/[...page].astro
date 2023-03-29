@@ -18,9 +18,9 @@ export async function getStaticPaths({ paginate }:any) {
     Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
   });
 
-  return Array.from(tags).map((tag: string) =>
+  return Array.from(tags).map((tag: any) =>
     paginate(
-      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
+      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem:string) => elem.toLowerCase() === tag)),
       {
         params: { tag: tag, case_study: TAG_BASE || undefined },
         pageSize: CASE_STUDY.postsPerPage,
