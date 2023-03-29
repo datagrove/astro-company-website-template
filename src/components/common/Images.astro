@@ -1,0 +1,30 @@
+---
+import { getImage } from "astro:assets";
+const images = await Astro.glob('/src/assets/**/*.{png,jpg,jpeg,svg}');
+
+const {image, width, alt, classes } = Astro.props;
+
+const imageLocation = images.find(element => element === image);
+
+if (imageLocation === undefined) {
+    throw new Error(`Could not find image ${image}`);
+} 
+const imageSrc = imageLocation;
+
+
+// const img320 = await getImage({src: image, width: 320})
+const img400 = await getImage({src: imageSrc, width: 400})
+// const img533 = await getImage({src: image, width: 533})
+const img900 = await getImage({src: imageSrc, width: 900})
+const imgBase = await getImage({src: imageSrc, width: width})
+---
+
+<img srcset={`${img400.src} 400w, ${img900.src} 900w ${imgBase.src} ${width}w`}
+      src={img400.src}
+      sizes="(max-width: 900px) 400px, 900px"
+      alt={alt}
+      class={classes} />
+
+<!-- <img srcset={`${img320.src} 320w, ${img427.src} 427w, ${img533.src} 533w, ${img640.src} 640w ${imgBase.src} ${width}w`}
+src={img320.src}
+sizes="(max-width: 900px) 400px, 900px"/> -->
