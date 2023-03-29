@@ -1,10 +1,12 @@
 ---
+import type { string } from "astro/zod";
 import { getImage } from "astro:assets";
-const images = await Astro.glob('/src/assets/**/*.{png,jpg,jpeg,svg}');
+const images = await Astro.glob('/src/assets/*.{png,jpg,jpeg,svg}');
+console.log(images);
 
 const {image, width, alt, classes } = Astro.props;
 
-const imageLocation = images.find(element => element === image);
+const imageLocation = images.find(element => element.default.src.split("?") === image);
 
 if (imageLocation === undefined) {
     throw new Error(`Could not find image ${image}`);
@@ -13,10 +15,10 @@ const imageSrc = imageLocation;
 
 
 // const img320 = await getImage({src: image, width: 320})
-const img400 = await getImage({src: imageSrc, width: 400})
+const img400 = await getImage({src: imageSrc.src, width: 400})
 // const img533 = await getImage({src: image, width: 533})
-const img900 = await getImage({src: imageSrc, width: 900})
-const imgBase = await getImage({src: imageSrc, width: width})
+const img900 = await getImage({src: imageSrc.src, width: 900})
+const imgBase = await getImage({src: imageSrc.src, width: width})
 ---
 
 <img srcset={`${img400.src} 400w, ${img900.src} 900w ${imgBase.src} ${width}w`}
