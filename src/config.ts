@@ -3,7 +3,7 @@ import defaultImage from './assets/default.jpg';
 const CONFIG = {
   name: 'Website Name',
 
-  origin: 'HOME PAGE URL',
+  origin: 'https://datagrove.com',
   basePathname: '/',
   trailingSlash: false,
 
@@ -67,7 +67,7 @@ const CONFIG = {
     },
 
     list: {
-      pathname: 'case-studies', // Blog main path, you can change this to "articles" (/articles)
+      pathname: 'casestudies', // Blog main path, you can change this to "articles" (/articles)
       noindex: false,
       disabled: false,
     },

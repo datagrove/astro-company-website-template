@@ -23,8 +23,8 @@ export const cleanSlug = (text = '') =>
 export const POST_PERMALINK_PATTERN = trimSlash(CASE_STUDY?.post?.permalink || '/%slug%');
 
 export const CASE_BASE = cleanSlug(CASE_STUDY?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug((CASE_STUDY?.category?.pathname || 'category'));
-export const TAG_BASE = cleanSlug((CASE_STUDY?.tag?.pathname || 'tag'));
+export const CATEGORY_BASE = cleanSlug(CASE_STUDY?.category?.pathname || 'category');
+export const TAG_BASE = cleanSlug(CASE_STUDY?.tag?.pathname || 'tag');
 
 
 /** */

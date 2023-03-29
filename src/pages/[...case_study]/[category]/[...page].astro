@@ -1,5 +1,5 @@
 ---
-import { SITE, CASE_STUDY } from '../../../config.mjs';
+import { SITE, CASE_STUDY } from '../../../config';
 
 import Layout from '../../../layouts/PageLayout.astro';
 import BlogList from '../../../components/case_studies/List.astro';
@@ -9,7 +9,7 @@ import Pagination from '../../../components/case_studies/Pagination.astro';
 import { fetchPosts } from '../../../utilities/casestudies';
 import { CATEGORY_BASE } from '../../../utilities/permalinks';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }:any) {
   if (CASE_STUDY?.disabled || CASE_STUDY?.category?.disabled) return [];
 
   const posts = await fetchPosts();

@@ -1,15 +1,15 @@
 ---
-import { SITE, CASE_STUDY } from '~/config.mjs';
+import { SITE, CASE_STUDY } from '../../../config';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/case_studies/List.astro';
-import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '../../../layouts/PageLayout.astro';
+import BlogList from '../../../components/case_studies/List.astro';
+import Pagination from '../../../components/case_studies/Pagination.astro';
 
-import { fetchPosts } from '~/utils/casestudies';
-import { TAG_BASE } from '~/utils/permalinks';
-import Headline from '~/components/blog/Headline.astro';
+import { fetchPosts } from '../../../utilities/casestudies';
+import { TAG_BASE } from '../../../utilities/permalinks';
+import Headline from '../../../components/case_studies/Headline.astro';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }:any) {
   if (CASE_STUDY?.disabled || CASE_STUDY?.tag?.disabled) return [];
 
   const posts = await fetchPosts();
