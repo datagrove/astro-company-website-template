@@ -72,7 +72,6 @@ const packages = defineCollection({
 
 // The name of the collection must match the name of the folder in the /src/content/collections/ directory.
 export const collections = {
-  'post': post,
   'case-study': post,
   'team': profile,
   'packages': packages,

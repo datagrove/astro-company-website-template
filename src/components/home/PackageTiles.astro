@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import { findImage } from '~/utils/images';
-import { Picture } from '@astrojs/image/components';
+// import { findImage } from '~/utils/images';
+// import { Picture } from '@astrojs/image/components';
 
 const packageList = await getCollection('packages', ({ data }) => {
   return data.draft !== true;

@@ -1,6 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, BLOG, CASE_STUDY } from '../config.mjs';
+import { SITE, CASE_STUDY } from '../config';
 import { trim } from './utils';
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
@@ -20,12 +20,12 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
-export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || '/%slug%');
+export const POST_PERMALINK_PATTERN = trimSlash(CASE_STUDY?.post?.permalink || '/%slug%');
 
-export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
-export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
 export const CASE_BASE = cleanSlug(CASE_STUDY?.list?.pathname);
+export const CATEGORY_BASE = cleanSlug((CASE_STUDY?.category?.pathname || 'category'));
+export const TAG_BASE = cleanSlug((CASE_STUDY?.tag?.pathname || 'tag'));
+
 
 /** */
 export const getCanonical = (path = ''): string | URL => new URL(path, SITE.origin);
@@ -60,10 +60,10 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+// export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
 
 /** */
-export const getCasePermalink = (): string => getPermalink(CASE_BASE);
+export const getCasePermalink = (path?:string): string => getPermalink(CASE_BASE);
 
 /** */
 export const getAsset = (path: string): string =>

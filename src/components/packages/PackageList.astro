@@ -44,7 +44,7 @@ let backgroundColor = "gray-100";
 
 <div class={`flex flex-wrap justify-center relative bg-${ backgroundColor }`}>
     {
-        packages.map((card, i) => (
+        packages.map((card:any, i:any) => (
 
         <section class="scroll-mt-16 px-5 w-full md:px-10 lg:px-20 border-b-4 pb-4" id="packageList">
 
@@ -74,7 +74,7 @@ let backgroundColor = "gray-100";
                 <div class="hidden flex-col items-center justify-center flex-wrap max-w-full md:flex-row " id={`${ card.data.benefitTitleDescription} + Btn1`}>            
                 
                     {
-                        card.data.benefitTitleDescription?.map((listItem) => (
+                        card.data.benefitTitleDescription?.map((listItem: any) => (
                         <div class="flex flex-col justify-center items-center mb-5">
                                 <div class="mb-4">
                                     <img 
@@ -108,7 +108,7 @@ let backgroundColor = "gray-100";
                 <div id={`${ card.data.includedServices} + Btn1`} class="hidden justify-start flex-wrap md:backdrop:pr-8 md:bg-[url('../../src/assets/images/camera-man.png')] bg-hero bg-no-repeat bg-contain bg-right">            
                     
                     {
-                        card.data.includedServices?.map((service) => (
+                        card.data.includedServices?.map((service: any) => (
                             <div class="flex mb-2 pb-2 lg:pl-4 text-left">
                                 <p class="w-full md:w-1/2 lg:w-2/3" set:html={ service }/>
                             </div>

@@ -55,7 +55,8 @@ const { case_study , url } = Astro.props;
           <iframe class="absolute top-0 bottom-0 left-0 right-0 w-full h-full" src={case_study.video}> </iframe>
         </div>
         ) : (
-        case_study.image ? (
+        case_study.image ? 
+        <!--(
           <Picture
             src={case_study.image}
             class="max-w-full lg:max-w-6xl mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
@@ -70,7 +71,8 @@ const { case_study , url } = Astro.props;
             decoding="async"
             background={undefined}
           />
-        ) : (
+        ) -->
+        : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="border-t dark:border-slate-700" />
           </div>

@@ -1,6 +1,6 @@
 ---
 
-import { SITE } from '../../config.mjs';
+import { SITE } from '../../config';
 import type { MetaSEO } from '../../types';
 import { getCanonical, getAsset } from '../../utilities/permalinks';
 
@@ -31,7 +31,7 @@ const {
 <!-- Google Site Verification -->
 {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
 
-{SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}
+<!--{SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />}-->
 
 <link rel="shortcut icon" href={getAsset('/favicon.ico')} />
 <link rel="icon" type="image/svg+xml" href={getAsset('/favicon.ico')} />

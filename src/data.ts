@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getCasePermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getCasePermalink, getAsset } from './utilities/permalinks';
 
 export const headerData = {
   links: [
@@ -33,10 +33,10 @@ export const headerData = {
       text: 'Courses',
       href: getPermalink('/courses'),
     },
-    {
-      text: 'Blog',
-      href: getBlogPermalink('/blog'),
-    },
+    // {
+    //   text: 'Blog',
+    //   href: getBlogPermalink('/blog'),
+    // },
   ],
   actions: [
     { type: 'button', text: 'FREE 1 HOUR CONSULT', href: '/' }
