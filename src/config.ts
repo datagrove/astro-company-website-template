@@ -3,7 +3,7 @@ import defaultImage from './assets/default.jpg';
 const CONFIG = {
   name: 'Website Name',
 
-  origin: 'https://datagrove.com',
+  origin: 'https://datagrove.com', //This needs to be an actual webpage
   basePathname: '/',
   trailingSlash: false,
 
@@ -27,34 +27,34 @@ const CONFIG = {
   googleAnalyticsId: false, // or "G-XXXXXXXXXX",
   googleSiteVerificationId: 'REPLACE_ME',
 
-  blog: {
-    disabled: false,
-    postsPerPage: 4,
+  // blog: {
+  //   disabled: false,
+  //   postsPerPage: 4,
 
-    post: {
-      permalink: '/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      noindex: false,
-      disabled: false,
-    },
+  //   post: {
+  //     permalink: '/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+  //     noindex: false,
+  //     disabled: false,
+  //   },
 
-    list: {
-      pathname: 'blog', // Blog main path, you can change this to "articles" (/articles)
-      noindex: false,
-      disabled: false,
-    },
+  //   list: {
+  //     pathname: 'blog', // Blog main path, you can change this to "articles" (/articles)
+  //     noindex: false,
+  //     disabled: false,
+  //   },
 
-    category: {
-      pathname: 'category', // Category main path /category/some-category
-      noindex: true,
-      disabled: false,
-    },
+  //   category: {
+  //     pathname: 'category', // Category main path /category/some-category
+  //     noindex: true,
+  //     disabled: false,
+  //   },
 
-    tag: {
-      pathname: 'tag', // Tag main path /tag/some-tag
-      noindex: true,
-      disabled: false,
-    },
-  },
+  //   tag: {
+  //     pathname: 'tag', // Tag main path /tag/some-tag
+  //     noindex: true,
+  //     disabled: false,
+  //   },
+  // },
 
   case_study: {
     disabled: false,

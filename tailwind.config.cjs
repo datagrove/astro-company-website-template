@@ -11,7 +11,11 @@ module.exports = {
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
         light: 'var(--aw-color-bg-page)',
-        ns_green: '#63c7c3'
+        ns_green: '#63c7c3',
+        bg_dark: '#0f172a',
+        bg_light: 'var(--aw-color-bg-page)',
+        text_page: 'var(--aw-color-text-page)',
+        text_muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],

@@ -1,6 +1,6 @@
 ---
 // import type { Card } from '~/types';
-import { Picture } from '@astrojs/image/components';
+// import { Picture } from '@astrojs/image/components';
 
 const { card } = Astro.props;
 
@@ -10,7 +10,8 @@ const src = `{card.data.image}` ||  '../src/assets/images/doctor-10.svg'
 <div class="flex w-80 md:w-full flex-col rounded-lg">
   <div
     class="relative w-full h-40 rounded-lg bg-muted-200 dark:bg-muted-800 pb-4 bg-ns_green"
-  >
+  > 
+  <!--
     {(card.data.image) && (<Picture
       src={card.data.image}
       class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-[170px] ptablet:max-w-[150px]"
@@ -30,7 +31,7 @@ const src = `{card.data.image}` ||  '../src/assets/images/doctor-10.svg'
       aspectRatio="3:4"
       loading="lazy"
       decoding="async"
-    />)} 
+    />)}  -->
   </div>
   <div class="flex-auto">
     <!-- class="card__content" -->

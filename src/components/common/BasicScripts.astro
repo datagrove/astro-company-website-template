@@ -86,9 +86,9 @@ import { SITE } from '../../config';
     function appyHeaderStylesOnScroll() {
       const header = document.getElementById('header');
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
-        document.getElementById('header').classList.add('scroll');
+        document.getElementById('header').classList.add('scroll shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-slate-900 dark:md:bg-slate-900/90');
       } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
-        document.getElementById('header').classList.remove('scroll');
+        document.getElementById('header').classList.remove('scroll shadow-md md:shadow-lg bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-slate-900 dark:md:bg-slate-900/90');
       }
       ticking = false;
     }
