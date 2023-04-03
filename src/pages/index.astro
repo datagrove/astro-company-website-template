@@ -10,6 +10,7 @@ import Supercharge from '../components/home/Supercharge.astro';
 import PackageTiles from '../components/home/PackageTiles.astro';
 import QualityVidGraphics from '../components/home/QualityVidGraphics.astro'
 import Testimonials from '../components/home/Testimonials.astro';
+import TestimonialsColl from '../components/home/testimonialsColl.astro';
 
 const { packages } = Astro.props;
 
@@ -122,7 +123,9 @@ const meta = {
 
   <!-- Testimonials Widget -->
 
-  <Testimonials
+  <TestimonialsColl />
+
+  <!-- <Testimonials
     highlight="TESTIMONIALS"
     title="What Our Clients Are Saying"
     items={[
@@ -152,7 +155,7 @@ const meta = {
     ]}
   />
 
-  
+   -->
 
   <!-- HighlightedPosts Widget ******* -->
 
