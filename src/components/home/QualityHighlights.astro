@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+
+const qualityHighlights = await getCollection('quality-highlights', ({ data }) => {
+    return data.draft !== true;
+})
+---
+<section class="scroll-mt-16 px-20 md:max-w-2/3" id="quality-highlights">
+    <div class="title mx-8">
+        <h1 class="text-4xl text-primary dark:text-blue-200 font-semibold" set:html="More Quality Marketing Videos & Graphics" />
+        <br />
+        <p 
+            class="leading-tighter tracking-tighter mb-4 font-heading" 
+            set:html="Clients that work with us find they are more easily creating marketing content more consistently. We help them navigate through complex video production, 2D animation, and everything in-between." 
+        />
+        <p 
+            class="leading-tighter tracking-tighter mb-4 font-heading" 
+            set:html="By using our process you'll not only have a good experience but not spend all your marketing money on producing high-quality videos." 
+        />
+    </div>
+
+    <div class="flex justify-evenly">
+        {
+            qualityHighlights.map((highlight) => (
+                <div class="md:w-1/3">
+                    <div class="icon-div flex justify-center ">
+                        <img 
+                            class="rounded-full border-8 border-blue-300"
+                            src={ highlight.data.icon } 
+                            alt={ highlight.data.alt }
+                        />
+                    </div> 
+
+                    <div class="mx-2">
+                        <h3 
+                            class="text-center font-bold py-2"    
+                            set:html={ highlight.data.title }
+                        />    
+                        <p
+                            class="text-center" 
+                            set:html={ highlight.data.description }   
+                        />
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
