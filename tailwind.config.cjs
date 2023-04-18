@@ -23,7 +23,7 @@ module.exports = {
         heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
-        'pplComputer': "url('/src/assets/images/peopleComputer.jpg')",
+        'pplComputer': "url('/public/images/peopleComputer.jpg')",
         'home-bg': "url('/src/assets/images/video_test.gif')",
       },
       maxWidth: {

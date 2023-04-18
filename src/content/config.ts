@@ -81,10 +81,21 @@ const testimonials = defineCollection({
   }),
 });
 
+const qualityHighlights = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    icon: z.string().optional(),
+    alt: z.string().optional(),
+    draft: z.boolean().optional(),
+  })
+})
+
 // The name of the collection must match the name of the folder in the /src/content/collections/ directory.
 export const collections = {
   'case-study': post,
   'team': profile,
   'packages': packages,
   'testimonials': testimonials,
+  'quality-highlights': qualityHighlights,
 };
